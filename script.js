@@ -38,14 +38,17 @@ rowButton.addEventListener("click", addRow);
 columnButton.addEventListener("click", addColumn);
 
 function addColumn() {
-  let tblRows = [...document.querySelectorAll("#dTable tr")];
-  let entriesOfRow = tblRows.entries();
-  for (const [i, row] of entriesOfRow) {
+  // addTableProp(tblRows, tblRows.length);
+  let tblPosition = [...document.querySelectorAll("#dTable tr")];
+
+  for (let i = 0; i < tblPosition.length; i++) {
+    let row,
+      td = document.createElement(i ? "td" : "th");
+    row = tblPosition[i];
     let text = document.createElement("p");
-    text.innerHTML = `column added`;
-    const cell = document.createElement(i ? "td" : "th");
-    cell.appendChild(text);
-    row.appendChild(cell);
+    text.innerHTML = "column added";
+    td.appendChild(text);
+    row && row.appendChild(td);
   }
 }
 
