@@ -20,7 +20,7 @@ rootDiv.appendChild(columnButton);
 // Table
 const tbl = document.createElement("table");
 tbl.setAttribute("id", "dTable");
-tbl.classList.add("table");
+tbl.classList.add("table", "table-striped");
 // tr
 let tr = tbl.insertRow(-1);
 for (let i = 0; i < 1; i++) {
@@ -43,10 +43,8 @@ function addColumn() {
   for (let i = 0; i < tblRows.length; i++) {
     let tblPos,
       td = document.createElement(i ? "td" : "th");
+    td.innerHTML = "column added";
     tblPos = tblRows[i];
-    let text = document.createElement("p");
-    text.innerHTML = "column added";
-    td.appendChild(text);
     tblPos.appendChild(td);
   }
 }
@@ -59,8 +57,6 @@ function addRow() {
   for (let i = 0; i < columnCount; i++) {
     let td = document.createElement("td");
     td = tr.insertCell(i);
-    let text = document.createElement("p");
-    text.innerHTML = `row added`;
-    td.appendChild(text);
+    td.innerHTML = `row added`;
   }
 }
